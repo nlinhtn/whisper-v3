@@ -1,0 +1,9 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/cloudbuild-455806/whisper-large-v3', '.']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/cloudbuild-455806/whisper-large-v3']
+
+images:
+  - 'gcr.io/cloudbuild-455806/whisper-large-v3'
