@@ -36,7 +36,7 @@ async def transcribe_audio(file: UploadFile = File(...)):
 
     try:
         # Thực hiện nhận dạng
-        result = model.transcribe(temp_file_path, language="vi")
+        result = model.transcribe(temp_file_path, language="ko")
 
         # Xóa file tạm sau khi xử lý
         os.unlink(temp_file_path)
@@ -66,7 +66,7 @@ async def transcribe_chunk(file: UploadFile = File(...)):
             "best_of": 5,
             "fp16": torch.cuda.is_available()
         }
-        result = model.transcribe(temp_file_path, language="vi", **options)
+        result = model.transcribe(temp_file_path, language="ko", **options)
 
         return {"text": result["text"]}
     except Exception as e:
