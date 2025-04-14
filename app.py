@@ -20,7 +20,7 @@ app.add_middleware(
 
 # Load Whisper Model
 print("Loading Whisper large-v3 model...")
-model = whisper.load_model("large-v3", device="cuda" if torch.cuda.is_available() else "cpu")
+model = whisper.load_model("small", device="cuda" if torch.cuda.is_available() else "cpu")
 print(f"Model loaded on {'GPU' if torch.cuda.is_available() else 'CPU'}")
 
 @app.get("/")
